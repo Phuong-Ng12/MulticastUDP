@@ -30,9 +30,10 @@ namespace Mssc.TransportProtocols.Utilities
 
                 // Get the local IP address used by the listener and the sender to
                 // exchange multicast messages.
-                Console.Write("\nEnter local IPAddress for sending multicast packets: ");
-                IPAddress localIPAddr = IPAddress.Parse(Console.ReadLine());
-
+                //Console.Write("\nEnter local IPAddress for sending multicast packets: ");
+                //IPAddress localIPAddr = IPAddress.Parse(Console.ReadLine());
+                Console.Write("Opening Sending Multicast: ");
+                IPAddress localIPAddr = IPAddress.Any;
                 // Create an IPEndPoint object.
                 IPEndPoint IPlocal = new IPEndPoint(localIPAddr, 0);
                 Console.WriteLine("Create an IPEndPoint object");
@@ -86,10 +87,6 @@ namespace Mssc.TransportProtocols.Utilities
                 Console.WriteLine("\n" + e.ToString());
             }
 
-
-
-
-
             mcastSocket.Close();
         }
 
@@ -100,7 +97,7 @@ namespace Mssc.TransportProtocols.Utilities
             // defined in the related RFC documents. These are the same
             // as the values used by the sender.
             mcastAddress = IPAddress.Parse("224.168.100.2");
-            
+
             mcastPort = 11000;
 
             // Join the listener multicast group.

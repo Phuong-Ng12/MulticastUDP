@@ -31,14 +31,14 @@ namespace Mssc.TransportProtocols.Utilities
                                          SocketType.Dgram,
                                          ProtocolType.Udp);
 
-                Console.Write("Enter the local IP address: ");
+                //Console.Write("Enter the local IP address: ");
 
-                IPAddress localIPAddr = IPAddress.Parse(Console.ReadLine());
-
+                //IPAddress localIPAddr = IPAddress.Parse(Console.ReadLine());
+                Console.Write("Joining Multicast: ");
+                IPAddress localIPAddr = IPAddress.Any;
                 EndPoint localEP = (EndPoint)new IPEndPoint(localIPAddr, mcastPort);
 
                 mcastSocket.Bind(localEP);
-                Console.ReadKey();
 
                 // Define a MulticastOption object specifying the multicast group
                 // address and the local IPAddress.
